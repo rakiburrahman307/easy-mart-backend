@@ -92,8 +92,8 @@ async function verifyToken(req, res, next) {
       const decodedUser = await admin.auth().verifyIdToken(token);
       // console.log("decodedUser: " + decodedUser);
       // Attach the decoded email to the request object
-      console.log(req.decodedEmail);
-      console.log(decodedUser.email);
+      // console.log(req.decodedEmail);
+      // console.log(decodedUser.email);
       // console.log(req.decodedEmail = decodedUser.email);
     } else {
       // Respond with error if no token is provided
@@ -633,7 +633,7 @@ async function run() {
     });
 
     // Create a new coupon
-    app.put("/coupon/apply", verifyToken, async (req, res) => {
+    app.put("/coupon/apply", async (req, res) => {
       const { code, discountPercentage, isActive } = req.body;
 
       // Validate input data
